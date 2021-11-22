@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
+
 
 public class ARPlacement : MonoBehaviour
 {
@@ -31,6 +31,13 @@ public class ARPlacement : MonoBehaviour
     void Update()
     {
 
+
+        if(spawnedObject == null && placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            ARPlaceObject();
+        }
+
+
         UpdatePlacementPose();
         UpdatePlacementIndicator();
 
@@ -55,17 +62,20 @@ public class ARPlacement : MonoBehaviour
         //0.5x, and 0.5y is basically the center of the screen
         var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
         var hits = new List<ARRaycastHit>();
-        aRRaycastManager.Raycast(screenCenter, hits, TrackableType.Planes);
+        aRRaycastManager.Raycast(screenCenter, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes);
 
         placementPoseIsValid = hits.Count > 0;
         if (placementPoseIsValid) {
             PlacementPose = hits[0].pose;
-        }
+        } 
 
     }
 
     void ARPlaceObject() {
+        Debug.Log("activate");
 
+        spawnedObject = Instantiate(arObjectToSpawn, PlacementPose.position, PlacementPose.rotation);
+        spawnedObject.SetActive(true);
     }
     
 
