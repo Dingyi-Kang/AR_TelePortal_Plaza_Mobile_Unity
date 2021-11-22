@@ -22,7 +22,7 @@ public class DoorLock : MonoBehaviour
         // Play Open Door Animation
         //potential issue: touch too long time, and update too quick
         //this is due to one button tap and unpate func
-        if (Input.GetKey("o"))
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
 
             if (isClosed)
