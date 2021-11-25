@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorLock : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class DoorLock : MonoBehaviour
     Animator m_Animator;
     int isOpenHash;
     bool isClosed = true;
+
+    public Material newMat;
+    public Material defaultMat;
+
 
     void Awake()
     {
@@ -22,7 +27,7 @@ public class DoorLock : MonoBehaviour
         // Play Open Door Animation
         //potential issue: touch too long time, and update too quick
         //this is due to one button tap and unpate func
-
+        //if(Input.GetKey(KeyCode.A))
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
 
@@ -31,6 +36,8 @@ public class DoorLock : MonoBehaviour
                 //open it
                 m_Animator.SetBool(isOpenHash, true);
                 isClosed = false;
+                RenderSettings.skybox = newMat;
+                //SceneManager.LoadScene("waterWorld", LoadSceneMode.Additive);
 
             }
             else
@@ -38,6 +45,8 @@ public class DoorLock : MonoBehaviour
                 //close it
                 m_Animator.SetBool(isOpenHash, false);
                 isClosed = true;
+                RenderSettings.skybox = defaultMat;
+                //SceneManager.UnloadScene("waterWorld");
             }
 
         }
