@@ -36,7 +36,7 @@ public class DoorLock : MonoBehaviour
                 //open it
                 m_Animator.SetBool(isOpenHash, true);
                 isClosed = false;
-                RenderSettings.skybox = newMat;
+                //RenderSettings.skybox = newMat;
                 //SceneManager.LoadScene("waterWorld", LoadSceneMode.Additive);
 
             }
@@ -45,7 +45,7 @@ public class DoorLock : MonoBehaviour
                 //close it
                 m_Animator.SetBool(isOpenHash, false);
                 isClosed = true;
-                RenderSettings.skybox = defaultMat;
+                //RenderSettings.skybox = defaultMat;
                 //SceneManager.UnloadScene("waterWorld");
             }
 

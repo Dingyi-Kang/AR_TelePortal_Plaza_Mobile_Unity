@@ -1,4 +1,4 @@
-﻿// (c) 2018 Guidev
+﻿ // (c) 2018 Guidev
 // This code is licensed under MIT license (see LICENSE.txt for details)
 
 Shader "Unlit/PortalPlane"

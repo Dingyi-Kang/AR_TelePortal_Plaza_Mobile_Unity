@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PortalPlane
+  m_Name: portalPlane
   m_Shader: {fileID: 4800000, guid: 6783f2ddd82df4ffc9b20b60def833f1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

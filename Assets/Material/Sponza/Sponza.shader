@@ -15,14 +15,16 @@ Shader "Unlit/SponzaShader"
 
 		Pass
 		{
-
+/*
 			Stencil{
-				Ref 1
-				Comp [_StencilComp]
+			Ref 1
+			Comp [_StencilComp]
+			//Comp Equal
 			}
+*/
 			CGPROGRAM
 			#pragma vertex vert
-			#pragma fragment frag
+			#pragma fragment frag  
 			
 			#include "UnityCG.cginc"
 

@@ -74,7 +74,14 @@ public class ARPlacement : MonoBehaviour
     void ARPlaceObject() {
         Debug.Log("activate");
 
-        spawnedObject = Instantiate(arObjectToSpawn, PlacementPose.position, PlacementPose.rotation);
+        Quaternion rot = PlacementPose.rotation;
+        //rot.x = 180f + PlacementPose.rotation.x;
+
+        Vector3 pos = PlacementPose.position;
+
+        //pos.y += 1.0f; 
+
+        spawnedObject = Instantiate(arObjectToSpawn, pos, rot);
         spawnedObject.SetActive(true);
     }
     
