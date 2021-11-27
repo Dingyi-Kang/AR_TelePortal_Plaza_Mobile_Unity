@@ -63,7 +63,7 @@ public class DoorLock : MonoBehaviour
                 //open it
                 m_Animator.SetBool(isOpenHash, true);
                 isClosed = false;
-                doorText.text = "Door Open";
+                doorText.text = "Doors Open";
                 isPlayed = true;
                 adventureMusic.Play();
                 adventureMusic.volume = 0;
@@ -76,7 +76,7 @@ public class DoorLock : MonoBehaviour
                 //close it
                 m_Animator.SetBool(isOpenHash, false);
                 isClosed = true;
-                doorText.text = "Door Closed";
+                doorText.text = "Doors Closed";
                 isPlayed = false;
                 
                 runningTime = doorLockOpenCloseTime;
